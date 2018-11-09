@@ -63,6 +63,7 @@ public class AppDirector : MonoBehaviour
         if (m_currQuestion == kNumQuestions)
         {
             CalculateMatch();
+            DisplayMatchScreen();
         }
     }
 
@@ -75,6 +76,7 @@ public class AppDirector : MonoBehaviour
         if (m_currQuestion == kNumQuestions)
         {
             CalculateMatch();
+            DisplayMatchScreen();
         }
     }
 
