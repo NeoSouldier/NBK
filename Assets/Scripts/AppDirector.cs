@@ -32,30 +32,29 @@ public class AppDirector : MonoBehaviour
     // Public functions
     // **************************
 
-	void Start () 
+	public void Start () 
     {
         m_appState = AppState.kMainMenu;
 
         m_currQuestion = -1;
         m_questionAnswers = new bool[kNumQuestions];
+        DisplayMainMenu();
 	}
 	
-	void Update () 
+	public void Update () 
     {
         // empty
-	}
+	} 
 
-    // **************************
-    // Private/Helper functions
-    // **************************
-
-    private void SelectedPlayGame()
-    {
+    public void SelectedPlayGame()
+    {        
         m_currQuestion = 0;
         DisplayNextQuestion();
+
+        m_appState = AppState.kPlaying;
     }
 
-    private void SelectedYes()
+    public void SelectedYes()
     {
         m_questionAnswers[m_currQuestion] = true;
         m_currQuestion++;
@@ -67,7 +66,7 @@ public class AppDirector : MonoBehaviour
         }
     }
 
-    private void SelectedNo()
+    public void SelectedNo()
     {
         m_questionAnswers[m_currQuestion] = false;
         m_currQuestion++;
@@ -79,11 +78,17 @@ public class AppDirector : MonoBehaviour
         }
     }
 
-    private void SelectedMatch()
+    public void SelectedMatch()
     {
         m_currQuestion = -1;
         DisplayMainMenu();
+
+        m_appState = AppState.kMainMenu;
     }
+
+    // **************************
+    // Private/Helper functions
+    // **************************
         
     private void DisplayMainMenu()
     {
@@ -115,5 +120,6 @@ public class AppDirector : MonoBehaviour
     private void CalculateMatch()
     {
         // TODO: Use m_questionAnswers[] to select match!
+        m_appState = AppState.kMatchSelected;
     }
 }
