@@ -1,2 +1,2 @@
 # OPC
-O Palacio Carioca
+App for friends.
